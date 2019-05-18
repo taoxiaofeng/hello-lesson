@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类名操作</title>
+    <style>
+        .bg {
+            width: 100%;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="button" value="添加类名" class="add">
+    <input type="button" value="移除类名" class="remove">
+    <input type="button" value="切换类名" class="toggle">
+    <input type="button" value="是否包含类名" class="contains">
+    <script>
+        // 获取页面中的元素
+        var div_obj = document.querySelector('div');
+        var add_btn = document.querySelector('.add');
+        var remove_btn = document.querySelector('.remove');
+        var toggle_btn = document.querySelector('.toggle');
+        var contains_btn = document.querySelector('.contains');
+
+        //添加类名
+        add_btn.onclick = function () {
+            div_obj.classList.add('bg');
+        }
+
+        //移除类名
+        remove_btn.onclick = function () {
+            div_obj.classList.remove('bg');
+        }
+
+        //切换类名
+        toggle_btn.onclick = function () {
+            div_obj.classList.toggle('bg');
+        }
+
+        //是否包含类名
+        contains_btn.onclick = function () {
+            document.write(contains_btn.classList.contains('bg'));
+        }
+    </script>
+</body>
+
+</html>

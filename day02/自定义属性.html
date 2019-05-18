@@ -8,9 +8,13 @@
 </head>
 <body>
     <div class="one" data-test="123"></div>
+    <div class="two" data-test-name="456"></div>
     <script>
         var list = document.querySelector(".one").dataset;
         console.log(list.test);
+
+        var listTwo = document.querySelector(".two").dataset;
+        console.log(listTwo,listTwo.testName);
 
         //设置自定义属性
         list.age = 20;

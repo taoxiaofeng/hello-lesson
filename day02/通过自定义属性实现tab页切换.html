@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义属性tab切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none
+        }
+
+        .news {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #CCC;
+            margin: 50px auto;
+        }
+
+        .title {
+            height: 59px;
+            line-height: 60px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            text-align: center;
+            background-color: #01204f;
+        }
+
+        li a {
+            color: #fff;
+        }
+
+        .content>div {
+            height: 340px;
+            background-color: #fff;
+            overflow: auto;
+        }
+
+        .content h2 {
+            height: 30px;
+            text-align: center;
+        }
+
+        .box {
+            height: 310px;
+        }
+
+        .box img {
+            vertical-align: bottom;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .active a {
+            color: #fff;
+        }
+
+        p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="news">
+        <div class="title">
+            <ul>
+                <li data-title="js" class="active"><a href="#">淮阳感秋</a></li>
+                <li data-title="qc"><a href="#">使至塞上</a></li>
+                <li data-title="ty"><a href="#">行经华阴</a></li>
+                <li data-title="yl"><a href="#">雨余小步</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <!-- 更改选项卡内容DOM元素的顺序，不会影响到整体的DOM结构 -->
+            <div class="js" style="display: none;" id="js">
+                <h2>淮阳感秋</h2>
+                <p>金风荡初节，玉露凋晚林。
+                    此夕穷涂士，郁陶伤寸心。
+                    野平葭苇合，村荒藜藿深。
+                    眺听良多感，徙倚独沾襟。
+                    沾襟何所为，怅然怀古意。
+                    秦俗犹未平，汉道将何冀。
+                    樊哙市井徒，萧何刀笔吏。
+                    一朝时运会，千古传名谥。
+                    寄言世上雄，虚生真可愧。</p>
+            </div>
+            <div class="qc" style="display: none;" id="qc">
+                <h2>使至塞上</h2>
+                <p>单车欲问边，属国过居延。
+                    征蓬出汉塞，归雁入胡天。
+                    大漠孤烟直，长河落日圆。
+                    萧关逢候骑，都护在燕然。</p>
+            </div>
+
+            <div class="yl" style="display: block;" id="yl">
+                <h2>雨余小步</h2>
+                <p>莲花莲叶柳塘西，疏雨疏风斜照低。
+                    竹箨冠轻容雪鬓，桃枝杖滑困春泥。
+                    垂虹疑饮双溪水，砌草新添一寸荑。
+                    不拟孤山闲放鹤，鹁鸠恰恰向人啼。</p>
+            </div>
+
+            <div class="ty" style="display: none;" id="ty">
+                <h2>行经华阴</h2>
+                <p>岧峣太华俯咸京，天外三峰削不成。
+                    武帝祠前云欲散，仙人掌上雨初晴。
+                    河山北枕秦关险，驿路西连汉畤平。
+                    借问路旁名利客，何如此处学长生？</p>
+            </div>
+
+
+            <div class="js" style="display: none;" id="js">
+                <h2>淮阳感秋</h2>
+                <p>金风荡初节，玉露凋晚林。
+                    此夕穷涂士，郁陶伤寸心。
+                    野平葭苇合，村荒藜藿深。
+                    眺听良多感，徙倚独沾襟。
+                    沾襟何所为，怅然怀古意。
+                    秦俗犹未平，汉道将何冀。
+                    樊哙市井徒，萧何刀笔吏。
+                    一朝时运会，千古传名谥。
+                    寄言世上雄，虚生真可愧。</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var li = document.querySelectorAll("li");
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].index = i;
+            li[i].onclick = function () {
+                //获取当前点击元素的 自定义属性 并赋值给currentId
+                currentId = li[i].dataset.title;
+
+                //根据currentId 操作当前DOM 元素
+                var currentDom = document.querySelector(`#${currentId}`);
+                for (let i = 0; i < li.length; i++) {
+                    li[i].className = '';
+                    document.querySelector(`#${li[i].dataset.title}`).style.display = "none";
+                }
+                this.className = 'active'; //this指向的当前元素
+                currentDom.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
