@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        //获取画布对象
+        var canvas = document.querySelector("canvas");
+        //获取绘图上下文
+        var ctx = canvas.getContext("2d");  
+        //先落笔
+        ctx.moveTo(100,100);
+        //连线
+        ctx.lineTo(300,100);
+        //描边
+        ctx.stroke();
+        //开启新图层
+        ctx.beginPath(); 
+        //带颜色的横线
+         ctx.moveTo(100,150);
+         ctx.lineTo(300,150);
+         ctx.strokeStyle="red"; // 线颜色
+         ctx.lineWidth = "20";//线宽
+         ctx.lineCap = "round";//设置线帽
+         ctx.stroke();
+    </script>
+</body>
+
+</html>

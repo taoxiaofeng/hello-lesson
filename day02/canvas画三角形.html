@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas 画三角形</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script type="text/javascript">
+        //获取canvas画布对象
+        var canvas = document.querySelector("canvas");
+        //获取绘图上下文
+        var ctx = canvas.getContext("2d");
+        ctx.moveTo(100,100);
+        ctx.lineTo(100,200);
+        ctx.lineTo(200,200);
+        // ctx.lineTo(100,100);
+        //闭合路径
+        ctx.closePath();//通过闭合路径方法画三角形
+
+        //填充效果
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

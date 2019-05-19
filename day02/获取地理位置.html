@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取地理位置</title>
+</head>
+
+<body>
+    <script>
+        //只能获取一次当前地理位置信息
+        //success error => 回调函数
+        // window.navigator.geolocation.getCurrentPosition(success, error);
+
+        //实时获取当前地理位置信息
+       window.navigator.geolocation.watchPosition(success,error);
+
+        function success(msg) {
+            console.log(msg);
+        }
+
+        function error(msg) {
+            console.log(msg);
+        }
+    </script>
+</body>
+
+</html>
