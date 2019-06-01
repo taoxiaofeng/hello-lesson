@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas 绘制矩形动画</title>
+    <style>
+        canvas {
+            border: 1px solid orangered;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        //获取canvas 画布对象
+        var canvas = document.querySelector('canvas');
+        //获取绘图上下文
+        var ctx = canvas.getContext("2d");
+        
+        // ctx.rect(100,100,200,200);
+        // //描边
+        // ctx.stroke();
+
+        // //清除画布
+        // ctx.clearRect(0,0,600,400);
+
+        //开始位置
+        var x = 0;
+        //处理的是一个增量
+        var step = 5;
+        //用来改变方向的
+        var i = 1;
+        //创建一个定时器
+        setInterval(() => {
+            //先清屏
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //开始绘制图形
+            ctx.fillRect(x,100,100,200);
+            //开始处理变量
+            x+=step*i;
+            console.log(x,step,i);
+            if(x>canvas.width-100) {
+                i  =-1;
+            } else if (x < 0) {
+                i = 1;
+            }
+        },20)
+
+    </script>
+</body>
+</html>

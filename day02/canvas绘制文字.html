@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas 绘制文字</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script type="text/javascript">
+        //获取canvas 画布对象
+        var canvas = document.querySelector("canvas");
+        //获取绘图上下文
+        var ctx = canvas.getContext("2d");
+
+        ctx.moveTo(300, 0);
+        ctx.lineTo(300, 400);
+        //绘制已定义的路径
+        ctx.stroke();
+        //起始一条路径，或重置当前路径
+        ctx.beginPath();
+
+        ctx.moveTo(0, 200);
+        ctx.lineTo(600,200);
+        ctx.stroke();
+
+        //设置文字大小
+        ctx.font = "40px 微软雅黑";
+        //设置文字的对齐方式
+        ctx.textAlign="center";
+        //设置文字垂直对齐
+        ctx.textBaseline="middle";
+        //设置阴影效果
+        ctx.shadowColor="red";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 5;
+        ctx.shadowBlur = 10;
+
+        //绘制文本
+        //镂空字
+        // ctx.strokeText("用你的日与夜，交换诗与远方", 300, 200);
+        //实体
+        ctx.fillText("用你的日与夜，交换诗与远方", 300, 200);
+
+
+
+    
+    
+    </script>
+    
+</body>
+</html>
